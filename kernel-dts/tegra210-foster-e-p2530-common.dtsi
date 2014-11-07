@@ -202,6 +202,12 @@
 		};
 	};
 
+	soctherm@0x700E2000 {
+		throttle@oc1 {
+			status = "disabled";
+		};
+	};
+
 	cpu_edp {
 		status = "okay";
 		nvidia,edp_limit = <25000>;
