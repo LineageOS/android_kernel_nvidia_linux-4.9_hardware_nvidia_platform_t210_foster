@@ -356,6 +356,10 @@
 		status = "okay";
 	};
 
+	chosen {
+		nvidia,tegra-shield-sku;
+        };
+
 	camera-pcl {
 		profiles {
 			ov7695@6_0021 {
