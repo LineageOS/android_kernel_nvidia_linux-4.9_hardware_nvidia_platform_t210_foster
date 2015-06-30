@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2014, NVIDIA CORPORATION.  All rights reserved.
+ * Copyright (c) 2014-2015, NVIDIA CORPORATION.  All rights reserved.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -273,6 +273,18 @@
 
 	xotg {
 		usb_vbus-supply = <&battery_reg>;
+	};
+
+	xusb_padctl {
+		avdd_pll_uerefe-supply = <&max77620_ldo7>;
+		hvdd_pex_pll_e-supply = <&max77620_sd3>;
+		dvdd_pex_pll-supply = <&max77620_ldo1>;
+		hvddio_pex-supply = <&max77620_sd3>;
+		dvddio_pex-supply = <&max77620_ldo1>;
+		hvdd_sata-supply = <&max77620_sd3>;
+		dvdd_sata_pll-supply = <&max77620_ldo8>;
+		hvddio_sata-supply = <&max77620_sd3>;
+		dvddio_sata-supply = <&max77620_ldo8>;
 	};
 
 	otg@7d000000 {
