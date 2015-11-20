@@ -371,8 +371,10 @@
 	/* Put common control config here */
 	xusb_pad_ctl: xusb_padctl {
 		status = "disabled";
-		nvidia,ss_portmap = <0x7770>;
-		nvidia,lane_owner = <0xFFFF>; /* Use 0xF to disable lane assign */
+		nvidia,ss_ports = < TEGRA_XHCI_SS_P0 TEGRA_XHCI_USB2_P0 TEGRA_XHCI_UNUSED_LANE TEGRA_XHCI_PORT_STD
+				    TEGRA_XHCI_SS_P1 TEGRA_XHCI_UNUSED_PORT TEGRA_XHCI_UNUSED_LANE TEGRA_XHCI_PORT_STD
+				    TEGRA_XHCI_SS_P2 TEGRA_XHCI_UNUSED_PORT TEGRA_XHCI_UNUSED_LANE TEGRA_XHCI_PORT_STD
+				    TEGRA_XHCI_SS_P3 TEGRA_XHCI_UNUSED_PORT TEGRA_XHCI_UNUSED_LANE TEGRA_XHCI_PORT_STD >;
 	};
 
 	xusb@70090000 {
