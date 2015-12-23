@@ -22,5 +22,6 @@
 		name = "gamepad_reset";
 
 		reset_gpio = <TEGRA_GPIO(H, 1)>;
+		status = "okay";
 	};
 };
