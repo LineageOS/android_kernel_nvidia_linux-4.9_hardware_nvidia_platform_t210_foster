@@ -21,7 +21,7 @@
  */
 
 #include "tegra210-foster-e-e2581-0930-a01-00.dts"
-#include "tegra210-platforms/tegra210-loki-e-gpio-e2581-0631-a01.dtsi"
+#include "foster-platforms/tegra210-loki-e-gpio-e2581-0631-a01.dtsi"
 #include <dt-bindings/sound/tegra-asoc-alt.h>
 
 / {
