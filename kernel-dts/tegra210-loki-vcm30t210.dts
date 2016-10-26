@@ -52,11 +52,19 @@
 			gpio-controller;
 			#gpio-cells = <2>;
 			reg = <0x77>;
-			gpio-init-names = "aggreg_default";
-			gpio-init-0 = <&pca9539_aggreg_default>;
-			pca9539_aggreg_default: aggreg_default {
-				gpio-output-low = <7 8>;
-				gpio-output-high = <1>;
+
+			aggreg-output-low {
+				gpio-hog;
+				output-low;
+				gpios = <7 0 8 0>;
+				line-name = "aggreg-output-low";
+			};
+
+			aggreg-output-high {
+				gpio-hog;
+				output-high;
+				gpios = <1 0>;
+				line-name = "aggreg-output-high";
 			};
 		};
 	};

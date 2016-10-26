@@ -508,13 +508,17 @@
 		edp-consumer-name = "secondary-wifi";
 	};
 
-	gpio: gpio@6000d000 {
+	gpio@6000d000 {
 		uart_over_jack {
-			status = "disabled";
-			gpio-output-high = <TEGRA_GPIO(DD, 0)>;
+			gpio-hog;
+			output-high;
+			gpios = <TEGRA_GPIO(DD, 0) 0>;
+			label = "uart_over_jack";
 			dt-override-status-odm-data = <0x80000000 0x80000000>;
+			status = "disabled";
 		};
 	};
+
 	sysedp_reactive_capping@1 {
 		compatible = "nvidia,tegra124-sysedp_reactive_capping";
 		nvidia,max_capping_mw = <15000>;
