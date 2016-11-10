@@ -52,6 +52,7 @@
 			gpio-controller;
 			#gpio-cells = <2>;
 			reg = <0x77>;
+			vcc-supply = <&battery_reg>;
 
 			aggreg-output-low {
 				gpio-hog;
