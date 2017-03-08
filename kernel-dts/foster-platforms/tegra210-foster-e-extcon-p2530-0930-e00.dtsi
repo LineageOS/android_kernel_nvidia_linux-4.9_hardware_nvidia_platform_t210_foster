@@ -29,20 +29,6 @@
 		};
 	};
 
-	udc@7d000000 {
-		nvidia,enable-pmu-vbus-detection;
-		nvidia,id-detection-type = <1>;
-		extcon-cables = <&otg_gpio_extcon 0>;
-		extcon-cable-names = "vbus";
-	};
-
-	otg@7d000000 {
-		nvidia,enable-pmu-vbus-detection;
-		nvidia,id-detection-type = <1>;
-		extcon-cables = <&otg_gpio_extcon 0 &otg_gpio_extcon 1>;
-		extcon-cable-names = "vbus", "id";
-	};
-
 	xudc@700d0000 {
 		extcon-cables = <&otg_gpio_extcon 0>;
 		extcon-cable-names = "vbus";

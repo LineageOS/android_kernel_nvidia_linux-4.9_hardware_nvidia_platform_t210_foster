@@ -171,14 +171,6 @@
 
 	};
 
-	udc@7d000000 {
-		status = "disabled";
-	};
-
-	otg@7d000000 {
-		status = "disabled";
-	};
-
 	xudc@700d0000 {
 		status = "okay";
 	};

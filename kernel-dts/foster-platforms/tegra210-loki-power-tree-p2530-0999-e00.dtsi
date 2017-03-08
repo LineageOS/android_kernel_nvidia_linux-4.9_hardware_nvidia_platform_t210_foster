@@ -235,18 +235,6 @@
 		dmicvdd-supply = <&max77620_sd3>;
 	};
 
-	udc@7d000000 {
-		avdd_usb-supply = <&vdd_3v3>;
-		avdd_pll_utmip-supply = <&max77620_sd3>;
-		usb_bat_chg-supply = <&battery_charger>;
-	};
-
-	ehci@7d000000 {
-		avdd_usb-supply = <&vdd_3v3>;
-		avdd_pll_utmip-supply = <&max77620_sd3>;
-		usb_vbus-supply = <&usb0_vbus>;
-	};
-
 	usb_cd@7009f000 {
 		usb_bat_chg-supply = <&battery_charger>;
 	};
@@ -272,11 +260,6 @@
 
 	xotg {
 		usb_vbus-supply = <&usb0_vbus>;
-	};
-
-	otg@7d000000 {
-		usb_vbus-supply = <&usb0_vbus>;
-		usb_bat_chg-supply = <&battery_charger>;
 	};
 
 	sdhci@700b0600 {
