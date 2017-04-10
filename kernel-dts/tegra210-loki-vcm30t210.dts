@@ -591,7 +591,7 @@
 	};
 
 	sdhci@700b0400 {
-		cd-gpios = <&gpio TEGRA_GPIO_PZ2 0>;
+		cd-gpios = <&gpio TEGRA_GPIO(Z, 2) 0>;
 		nvidia,sd-device;
 	};
 
