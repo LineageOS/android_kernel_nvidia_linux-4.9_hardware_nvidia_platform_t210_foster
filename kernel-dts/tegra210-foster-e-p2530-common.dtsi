@@ -56,20 +56,17 @@
 
 	pmc@7000e400 {
 		nvidia,restrict-voltage-switch;
-		pinctrl-names = "default";
-		pinctrl-0 = <&pinctrl_iopad_default>;
-
-		io-pad-defaults {
-			audio-hv {
-				nvidia,io-pad-init-voltage = <IO_PAD_VOLTAGE_1_8V>;
+		iopad-defaults {
+			audio-hv-pads {
+				pins = "audio-hv";
+				nvidia,power-source-voltage = <TEGRA_IO_PAD_VOLTAGE_1800000UV>;
 			};
 
-			spi-hv {
-				nvidia,io-pad-init-voltage = <IO_PAD_VOLTAGE_1_8V>;
+			spi-hv-pads {
+				pins = "spi-hv";
+				nvidia,power-source-voltage = <TEGRA_IO_PAD_VOLTAGE_1800000UV>;
 			};
-		};
 
-		pinctrl_iopad_default: iopad-defaults {
 			sdmmc-io-pads {
 				pins = "sdmmc1", "sdmmc3";
 				nvidia,enable-voltage-switching;
