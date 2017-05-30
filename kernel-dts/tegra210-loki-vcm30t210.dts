@@ -131,24 +131,7 @@
 
 	spi@70410000 {
 		status = "okay";
-		spi@0 {
-			compatible = "spidev";
-			reg = <1>;
-			spi-max-frequency = <133000000>;
-
-			controller-data {
-				nvidia,x1-len-limit = <16>;
-				nvidia,x1-bus-speed = <133000000>; /* In Mhz */
-				nvidia,x1-dymmy-cycle = <0>;
-				nvidia,x4-bus-speed = <133000000>;
-				nvidia,x4-dymmy-cycle = <8>;
-				nvidia,ifddr-div2-sdr = <1>;
-				nvidia,x4-is-ddr=<1>;
-			};
-
-		};
-
-		spiflash@1 {
+		spiflash@0 {
 			#address-cells = <1>;
 			#size-cells = <1>;
 			compatible = "s25fs512s";
@@ -168,7 +151,6 @@
 				nvidia,x4-is-ddr=<1>;
 			};
 		};
-
 	};
 
 	xudc@700d0000 {
