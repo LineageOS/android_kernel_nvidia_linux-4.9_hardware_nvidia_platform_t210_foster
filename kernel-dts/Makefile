@@ -2,6 +2,9 @@ old-dtb := $(dtb-y)
 dtb-y :=
 makefile-path := platform/t210/foster/kernel-dts
 
+dtb-$(CONFIG_ARCH_TEGRA_210_SOC) += tegra210-darcy-p2894-0000-a00-00.dtb
+dtb-$(CONFIG_ARCH_TEGRA_210_SOC) += tegra210-darcy-p2894-0050-a04-00.dtb
+dtb-$(CONFIG_ARCH_TEGRA_210_SOC) += tegra210-darcy-p2894-0050-a08-00.dtb
 dtb-$(CONFIG_ARCH_TEGRA_210_SOC) += tegra210-foster-e-p2530-0930-e00-00.dtb
 dtb-$(CONFIG_ARCH_TEGRA_210_SOC) += tegra210-foster-e-p2530-0930-e01-00.dtb
 dtb-$(CONFIG_ARCH_TEGRA_210_SOC) += tegra210-foster-e-p2530-0930-e02-00.dtb
