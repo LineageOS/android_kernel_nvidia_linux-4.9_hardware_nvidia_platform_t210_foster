@@ -58,7 +58,7 @@
 	};
 
 	pmc@7000e400 {
-		nvidia,core-power-req-active-high;
+		nvidia,core-pwr-req-active-high;
 		nvidia,sys-clock-req-active-high;
 		io-pad-defaults {
 			audio-hv {
