@@ -16,6 +16,7 @@
 / {
 	pwm-fan {
 		compatible = "pwm-fan";
+		status = "okay";
 
 		shared_data = <&pwm_fan_shared_data>;
 		active_pwm = <0 16640 28160 40960 51200 61440 62720 64000 64512 65535>;
