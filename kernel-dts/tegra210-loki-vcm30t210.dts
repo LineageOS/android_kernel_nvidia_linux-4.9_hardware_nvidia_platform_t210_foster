@@ -509,7 +509,7 @@
 			bitclock-slave;
 			frame-slave;
 			bitclock-noninversion;
-			frame-noninversion;
+			frame-inversion;
 			bit-format = "s32_le";
 			bclk_ratio = <1>;
 			srate = <48000>;
@@ -528,7 +528,7 @@
 			bitclock-slave;
 			frame-slave;
 			bitclock-noninversion;
-			frame-noninversion;
+			frame-inversion;
 			bit-format = "s32_le";
 			bclk_ratio = <1>;
 			srate = <48000>;
@@ -547,7 +547,7 @@
 			bitclock-slave;
 			frame-slave;
 			bitclock-noninversion;
-			frame-noninversion;
+			frame-inversion;
 			bit-format = "s32_le";
 			bclk_ratio = <1>;
 			srate = <48000>;
