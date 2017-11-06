@@ -155,40 +155,87 @@
 		};
 	};
 
-	udc@7d000000 {
-		nvidia,port-otg;
-		nvidia,charging-supported;
-		#extcon-cells = <1>;
-		status = "disabled";
-	};
-
-        otg@7d000000 {
-		#extcon-cells = <1>;
-		status = "disabled";
-	};
-
-	/* Put common control config here */
-	xusb_pad_ctl: xusb_padctl {
-		nvidia,ss_portmap = <0x7720>;
-		nvidia,lane_owner = <0xFF56>; /* Use 0xF to disable lane assign */
-		nvidia,otg_portmap = <0x0101>;
+	xusb_padctl@7009f000 {
 		status = "okay";
+
+		pads {
+			usb2 {
+				status = "okay";
+
+				lanes {
+					usb2-0 {
+						status = "okay";
+						nvidia,function = "xusb";
+					};
+					usb2-2 {
+						status = "okay";
+						nvidia,function = "xusb";
+					};
+				};
+			};
+
+			pcie {
+				status = "okay";
+
+				lanes {
+					pcie-0 {
+						status = "okay";
+						nvidia,function = "pcie-x1";
+					};
+					pcie-1 {
+						status = "okay";
+						nvidia,function = "pcie-x4";
+					};
+					pcie-2 {
+						status = "okay";
+						nvidia,function = "pcie-x4";
+					};
+					pcie-3 {
+						status = "okay";
+						nvidia,function = "pcie-x4";
+					};
+					pcie-4 {
+						status = "okay";
+						nvidia,function = "pcie-x4";
+					};
+					pcie-5 {
+						status = "okay";
+						nvidia,function = "xusb";
+					};
+					pcie-6 {
+						status = "okay";
+						nvidia,function = "xusb";
+					};
+				};
+			};
+		};
+
+		ports {
+			usb2-0 {
+				status = "okay";
+				mode = "otg";
+			};
+			usb2-2 {
+				status = "okay";
+				mode = "host";
+			};
+			usb3-0 {
+				status = "okay";
+				nvidia,usb2-companion = <0>;
+			};
+			usb3-1 {
+				status = "okay";
+				nvidia,usb2-companion = <2>;
+			};
+		};
 	};
 
 	xusb@70090000 {
-		/* nvidia,uses_external_pmic;
-		/* nvidia,gpio_controls_muxed_ss_lanes; */
-		nvidia,gpio_ss1_sata = <0>;
-		nvidia,ulpicap = <0>; /* No ulpi support. can we remove */
-		nvidia,portmap = <0x0402>;
-		nvidia,common_padctl = <&xusb_pad_ctl>;
-		phys = <&tegra_padctl_uphy TEGRA_PADCTL_UPHY_UTMI_P(0)>,
-			<&tegra_padctl_uphy TEGRA_PADCTL_UPHY_USB3_P(0)>,
-			<&tegra_padctl_uphy TEGRA_PADCTL_UPHY_UTMI_P(2)>,
-			<&tegra_padctl_uphy TEGRA_PADCTL_UPHY_USB3_P(1)>,
-			<&tegra_padctl_uphy TEGRA_PADCTL_UPHY_UTMI_P(1)>,
-			<&tegra_padctl_uphy TEGRA_PADCTL_UPHY_USB3_P(2)>;
-		phy-names = "utmi-0", "usb3-0", "utmi-2", "usb3-1", "utmi-1", "usb3-2";
+		phys = <&{/xusb_padctl@7009f000/pads/usb2/lanes/usb2-0}>,
+				<&{/xusb_padctl@7009f000/pads/usb2/lanes/usb2-2}>,
+				<&{/xusb_padctl@7009f000/pads/pcie/lanes/pcie-6}>,
+				<&{/xusb_padctl@7009f000/pads/pcie/lanes/pcie-5}>;
+		phy-names = "usb2-0", "usb2-2", "usb3-0", "usb3-1";
 		#extcon-cells = <1>;
 		nvidia,pmc-wakeup =
 			<&tegra_pmc
@@ -205,19 +252,28 @@
 	};
 
 	xudc@700d0000 {
-		phys =  <&tegra_padctl_uphy TEGRA_PADCTL_UPHY_UTMI_P(0)>,
-				<&tegra_padctl_uphy TEGRA_PADCTL_UPHY_USB3_P(0)>;
+		phys =  <&{/xusb_padctl@7009f000/pads/usb2/lanes/usb2-0}>,
+				<&{/xusb_padctl@7009f000/pads/pcie/lanes/pcie-6}>;
 		phy-names = "usb2", "usb3";
 		charger-detector = <&usb_cd>;
-		nvidia,common_padctl = <&xusb_pad_ctl>;
 		#extcon-cells = <1>;
 		status = "okay";
 	};
 
-	xotg {
-		nvidia,common_padctl = <&xusb_pad_ctl>;
-		#extcon-cells = <1>;
+	usb_cd: usb_cd@7009f000 {
+		compatible = "nvidia,tegra210-usb-cd";
+		reg = <0x0 0x7009f000 0x0 0x1000>;
+		phys = <&{/xusb_padctl@7009f000/pads/usb2/lanes/usb2-0}>;
+		phy-names = "otg-phy";
 		status = "okay";
+	};
+
+	psy_extcon_xudc {
+		/delete-property/ dt-override-status-odm-data;
+	};
+
+	xotg {
+		#extcon-cells = <1>;
 	};
 
 	chosen {
