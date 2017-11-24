@@ -131,7 +131,7 @@
 	};
 
 	/* Put common control config here */
-	xusb_pad_ctl: xusb_padctl {
+	xusb_pad_ctl: xusb_padctl@7009f000 {
 		nvidia,ss_ports = < TEGRA_XHCI_SS_P0 TEGRA_XHCI_USB2_P1 TEGRA_XHCI_LANE_6 TEGRA_XHCI_PORT_STD
 				    TEGRA_XHCI_SS_P1 TEGRA_XHCI_USB2_P2 TEGRA_XHCI_LANE_5 TEGRA_XHCI_PORT_STD
 				    TEGRA_XHCI_SS_P2 TEGRA_XHCI_USB2_P3 TEGRA_XHCI_LANE_0 TEGRA_XHCI_PORT_STD

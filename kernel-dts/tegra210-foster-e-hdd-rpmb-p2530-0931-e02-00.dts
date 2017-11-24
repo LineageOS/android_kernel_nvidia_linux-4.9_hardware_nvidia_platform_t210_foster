@@ -1,7 +1,7 @@
 /*
  * arch/arm64/boot/dts/tegra210-foster-e-hdd_rpmb-p2530-0931-e02-00.dts
  *
- * Copyright (c) 2014-2015, NVIDIA CORPORATION.  All rights reserved.
+ * Copyright (c) 2014-2017, NVIDIA CORPORATION.  All rights reserved.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -39,7 +39,7 @@
 		};
 	};
 
-	xusb_padctl {
+	xusb_padctl@7009f000 {
 		nvidia,enable-sata-port;
 	};
 

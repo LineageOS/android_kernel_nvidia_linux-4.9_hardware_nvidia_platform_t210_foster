@@ -350,7 +350,7 @@
 	};
 
 	/* Put common control config here */
-	xusb_pad_ctl: xusb_padctl {
+	xusb_pad_ctl: xusb_padctl@7009f000 {
 		status = "disabled";
 		nvidia,ss_ports = < TEGRA_XHCI_SS_P0 TEGRA_XHCI_USB2_P0 TEGRA_XHCI_UNUSED_LANE TEGRA_XHCI_PORT_STD
 				    TEGRA_XHCI_SS_P1 TEGRA_XHCI_UNUSED_PORT TEGRA_XHCI_UNUSED_LANE TEGRA_XHCI_PORT_STD
