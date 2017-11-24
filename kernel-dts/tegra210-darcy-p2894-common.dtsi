@@ -645,4 +645,17 @@
 		compatible = "nvidia,nvs_dsm";
 		status = "okay";
 	};
+
+	/* WAR to set usb port as device mode by default */
+	pinmux@700008d4 {
+		pinmux_default: common {
+			pz1 {
+				nvidia,pins = "pz1";
+				nvidia,function = "rsvd2";
+				nvidia,pull = <TEGRA_PIN_PULL_UP>;
+				nvidia,tristate = <TEGRA_PIN_ENABLE>;
+				nvidia,enable-input = <TEGRA_PIN_DISABLE>;
+			};
+		};
+	};
 };
