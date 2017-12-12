@@ -412,6 +412,14 @@
 				nvidia,enable-input = <TEGRA_PIN_ENABLE>;
 			};
 
+			pz1 {
+				nvidia,pins = "pz1";
+				nvidia,function = "rsvd2";
+				nvidia,pull = <TEGRA_PIN_PULL_UP>;
+				nvidia,tristate = <TEGRA_PIN_ENABLE>;
+				nvidia,enable-input = <TEGRA_PIN_DISABLE>;
+			};
+
 			uart2_tx_pg0 {
 				nvidia,pins = "uart2_tx_pg0";
 				nvidia,function = "uartb";
@@ -925,14 +933,6 @@
 
 			clk_32k_out_py5 {
 				nvidia,pins = "clk_32k_out_py5";
-				nvidia,function = "rsvd2";
-				nvidia,pull = <TEGRA_PIN_PULL_DOWN>;
-				nvidia,tristate = <TEGRA_PIN_ENABLE>;
-				nvidia,enable-input = <TEGRA_PIN_DISABLE>;
-			};
-
-			pz1 {
-				nvidia,pins = "pz1";
 				nvidia,function = "rsvd2";
 				nvidia,pull = <TEGRA_PIN_PULL_DOWN>;
 				nvidia,tristate = <TEGRA_PIN_ENABLE>;
