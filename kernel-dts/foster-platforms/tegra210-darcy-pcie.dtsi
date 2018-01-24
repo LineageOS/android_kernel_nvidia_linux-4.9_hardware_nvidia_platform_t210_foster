@@ -1,7 +1,7 @@
 /*
  * arch/arm64/boot/dts/tegra210-platforms/tegra210-darcy-pci.dtsi
  *
- * Copyright (c) 2015, NVIDIA CORPORATION.  All rights reserved.
+ * Copyright (c) 2015-2018, NVIDIA CORPORATION.  All rights reserved.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,7 +18,7 @@
  *
  */
 / {
-	pcie-controller {
+	pcie-controller@1003000 {
 		nvidia,wake-gpio = <&gpio TEGRA_GPIO(A, 2) 0>;
 		nvidia,boot-detect-delay = <10000>;
 		dvdd-pex-pll-supply = <&max77620_ldo1>;
