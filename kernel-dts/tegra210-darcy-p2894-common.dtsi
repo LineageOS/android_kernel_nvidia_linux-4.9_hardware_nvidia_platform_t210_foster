@@ -114,7 +114,6 @@
 	sdhci@700b0200 { /* SDMMC2 for Wifi */
 		uhs-mask = <0x8>;
 		power-off-rail;
-		only-1-8-v;
 		status = "okay";
 	};
 
