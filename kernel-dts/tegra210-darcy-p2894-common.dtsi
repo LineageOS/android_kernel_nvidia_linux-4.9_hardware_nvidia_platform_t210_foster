@@ -57,21 +57,6 @@
 		};
 	};
 
-	reserved-memory {
-		vpr: vpr-carveout {
-			status = "disabled";
-		};
-	};
-
-	clock {
-		nvidia,tegra-ignore-clks = <TEGRA210_CLK_UARTB>;
-	};
-
-	memory@80000000 {
-		device_type = "memory";
-		reg = < 0x0 0x80000000 0x0 0x80000000>;
-	};
-
 	pmc@7000e400 {
 		nvidia,core-pwr-req-active-high;
 		nvidia,sys-clock-req-active-high;
