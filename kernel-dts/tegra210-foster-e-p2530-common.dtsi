@@ -1,7 +1,7 @@
 /*
  * arch/arm64/boot/dts/tegra210-foster-e-p2530-common.dtsi
  *
- * Copyright (c) 2014-2017, NVIDIA CORPORATION.  All rights reserved.
+ * Copyright (c) 2014-2018, NVIDIA CORPORATION.  All rights reserved.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -130,38 +130,132 @@
 		};
 	};
 
-	/* Put common control config here */
-	xusb_pad_ctl: xusb_padctl@7009f000 {
-		nvidia,ss_ports = < TEGRA_XHCI_SS_P0 TEGRA_XHCI_USB2_P1 TEGRA_XHCI_LANE_6 TEGRA_XHCI_PORT_STD
-				    TEGRA_XHCI_SS_P1 TEGRA_XHCI_USB2_P2 TEGRA_XHCI_LANE_5 TEGRA_XHCI_PORT_STD
-				    TEGRA_XHCI_SS_P2 TEGRA_XHCI_USB2_P3 TEGRA_XHCI_LANE_0 TEGRA_XHCI_PORT_STD
-				    TEGRA_XHCI_SS_P3 TEGRA_XHCI_USB2_P0 TEGRA_XHCI_UNUSED_LANE TEGRA_XHCI_PORT_OTG>;
+	xusb_padctl@7009f000 {
 		status = "okay";
+
+		pads {
+			usb2 {
+				status = "okay";
+
+				lanes {
+					usb2-0 {
+						status = "okay";
+						nvidia,function = "xusb";
+					};
+					usb2-1 {
+						status = "okay";
+						nvidia,function = "xusb";
+					};
+					usb2-2 {
+						status = "okay";
+						nvidia,function = "xusb";
+					};
+					usb2-3 {
+						status = "okay";
+						nvidia,function = "xusb";
+					};
+				};
+			};
+
+			pcie {
+				status = "okay";
+
+				lanes {
+					pcie-0 {
+						status = "okay";
+						nvidia,function = "xusb";
+					};
+					pcie-5 {
+						status = "okay";
+						nvidia,function = "xusb";
+					};
+					pcie-6 {
+						status = "okay";
+						nvidia,function = "xusb";
+					};
+				};
+			};
+		};
+
+		ports {
+			usb2-0 {
+				status = "okay";
+				mode = "otg";
+				nvidia,usb3-port-fake = <3>;
+			};
+			usb2-1 {
+				status = "okay";
+				mode = "host";
+			};
+			usb2-2 {
+				status = "okay";
+				mode = "host";
+			};
+			usb2-3 {
+				status = "okay";
+				mode = "host";
+			};
+			usb3-0 {
+				status = "okay";
+				nvidia,usb2-companion = <1>;
+			};
+			usb3-1 {
+				status = "okay";
+				nvidia,usb2-companion = <2>;
+			};
+			usb3-2 {
+				status = "okay";
+				nvidia,usb2-companion = <3>;
+			};
+		};
 	};
 
 	xusb@70090000 {
-		/* nvidia,uses_external_pmic;
-		/* nvidia,gpio_controls_muxed_ss_lanes; */
-		nvidia,gpio_ss1_sata = <0>;
-		nvidia,ulpicap = <0>; /* No ulpi support. can we remove */
-		nvidia,portmap = <0x0e07>;
-		nvidia,common_padctl = <&xusb_pad_ctl>;
+		phys = <&{/xusb_padctl@7009f000/pads/usb2/lanes/usb2-0}>,
+				<&{/xusb_padctl@7009f000/pads/usb2/lanes/usb2-1}>,
+				<&{/xusb_padctl@7009f000/pads/usb2/lanes/usb2-2}>,
+				<&{/xusb_padctl@7009f000/pads/usb2/lanes/usb2-3}>,
+				<&{/xusb_padctl@7009f000/pads/pcie/lanes/pcie-6}>,
+				<&{/xusb_padctl@7009f000/pads/pcie/lanes/pcie-5}>,
+				<&{/xusb_padctl@7009f000/pads/pcie/lanes/pcie-0}>;
+		phy-names = "usb2-0", "usb2-1", "usb2-2", "usb2-3", "usb3-0", "usb3-1", "usb3-2";
+		#extcon-cells = <1>;
+		nvidia,pmc-wakeup =
+			<&tegra_pmc
+				PMC_WAKE_TYPE_EVENT 39 PMC_TRIGGER_TYPE_HIGH>,
+			<&tegra_pmc
+				PMC_WAKE_TYPE_EVENT 40 PMC_TRIGGER_TYPE_HIGH>,
+			<&tegra_pmc
+				PMC_WAKE_TYPE_EVENT 41 PMC_TRIGGER_TYPE_HIGH>,
+			<&tegra_pmc
+				PMC_WAKE_TYPE_EVENT 42 PMC_TRIGGER_TYPE_HIGH>,
+			<&tegra_pmc
+				PMC_WAKE_TYPE_EVENT 44 PMC_TRIGGER_TYPE_HIGH>;
 		status = "okay";
 	};
 
 	xudc@700d0000 {
-		nvidia,common_padctl = <&xusb_pad_ctl>;
-		nvidia,portmap = <0x0108>;
+		phys =  <&{/xusb_padctl@7009f000/pads/usb2/lanes/usb2-0}>;
+		phy-names = "usb2";
+		charger-detector = <&usb_cd>;
 		#extcon-cells = <1>;
-		status = "disabled";
-		dt-override-status-odm-data = <0x01000000 0x01000000>;
+		status = "okay";
+	};
+
+	usb_cd: usb_cd@7009f000 {
+		compatible = "nvidia,tegra210-usb-cd";
+		reg = <0x0 0x7009f000 0x0 0x1000>;
+		phys = <&{/xusb_padctl@7009f000/pads/usb2/lanes/usb2-0}>;
+		phy-names = "otg-phy";
+		status = "okay";
+	};
+
+	psy_extcon_xudc {
+		/delete-property/ dt-override-status-odm-data;
 	};
 
 	xotg {
-		nvidia,common_padctl = <&xusb_pad_ctl>;
 		#extcon-cells = <1>;
-		status = "disabled";
-		dt-override-status-odm-data = <0x01000000 0x01000000>;
 	};
 
 	chosen {

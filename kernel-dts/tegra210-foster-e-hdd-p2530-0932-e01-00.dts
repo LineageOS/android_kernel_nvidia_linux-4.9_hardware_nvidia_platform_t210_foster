@@ -1,7 +1,7 @@
 /*
  * arch/arm64/boot/dts/tegra210-foster-e-hdd-p2530-0932-e00-00.dts
  *
- * Copyright (c) 2014-2017, NVIDIA CORPORATION.  All rights reserved.
+ * Copyright (c) 2014-2018, NVIDIA CORPORATION.  All rights reserved.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -38,10 +38,6 @@
 			compatible = "android,firmware";
 			hardware = "foster_e_hdd";
 		};
-	};
-
-	xusb_padctl@7009f000 {
-		nvidia,enable-sata-port;
 	};
 
 	sata@70020000 {
