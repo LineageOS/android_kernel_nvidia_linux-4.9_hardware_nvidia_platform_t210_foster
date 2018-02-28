@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015 NVIDIA CORPORATION. All rights reserved.
+ * Copyright (c) 2015-2018 NVIDIA CORPORATION. All rights reserved.
  *
  * This software is licensed under the terms of the GNU General Public
  * License version 2, as published by the Free Software Foundation, and
@@ -13,8 +13,34 @@
  */
 
 / {
-        cpufreq {
+	cpufreq {
 		compatible = "nvidia,tegra210-cpufreq";
+		cpu-scaling-data {
+			freq-table = <
+				102000
+				204000
+				307200
+				403200
+				518400
+				614400
+				710400
+				825600
+				921600
+				1036800
+				1132800
+				1224000
+				1326000
+				1428000
+				1530000
+				1632000
+				1734000
+				1836000
+				1912500
+				2014500
+			>;
+			preserve-across-suspend;
+		};
+
 		emc-scaling-data {
 			emc-cpu-limit-table = <
 				/* CPU    EMC */
@@ -22,8 +48,8 @@
 				204800	102000
 				307200	204000
 				403000	408000
-				714000	665600
-				1100000 1600000
+				710400	665600
+				1036800 1600000
 			>;
 		};
 	};

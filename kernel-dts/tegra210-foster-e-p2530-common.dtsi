@@ -39,7 +39,7 @@
 #include <t210-common-platforms/tegra210-sysedp.dtsi>
 #include <tegra210-soc/tegra210-audio.dtsi>
 #include <tegra210-soc/tegra210-soc-sata.dtsi>
-#include "foster-platforms/tegra210-loki-e-cpufreq.dtsi"
+#include "foster-platforms/tegra210-foster-cpufreq.dtsi"
 
 / {
 	host1x {
