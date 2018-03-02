@@ -4,7 +4,7 @@
 
 / {
 	external-memory-controller@7001b000 {
-		compatible = "nvidia,tegra21-emc";
+		compatible = "nvidia,tegra21-emc", "nvidia,tegra210-emc";
 		reg = <0x0 0x7001b000 0x0 0x1000>;
 		#address-cells = <1>;
 		#size-cells = <0>;
