@@ -88,6 +88,7 @@
 
 	sdhci@700b0600 { /* SDMMC4 for EMMC */
 		uhs-mask = <0x0>;
+		mmc-hs400-enhanced-strobe;
 		built-in;
 		power-off-rail;
 		status = "okay";
