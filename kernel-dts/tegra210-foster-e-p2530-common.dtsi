@@ -54,6 +54,10 @@
 		};
 	};
 
+	pwm@7000a000 {
+		nvidia,no-clk-sleeping-in-ops;
+	};
+
 	pmc@7000e400 {
 		nvidia,restrict-voltage-switch;
 		iopad-defaults {
