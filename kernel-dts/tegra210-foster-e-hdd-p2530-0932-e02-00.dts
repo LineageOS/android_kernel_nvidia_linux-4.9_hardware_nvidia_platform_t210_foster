@@ -40,7 +40,9 @@
 
 	sata@70020000 {
 		status = "okay";
+		compatible = "nvidia,tegra210-ahci-sata-shield";
 		nvidia,enable-sata-port;
+		aux-device-name = "tegra-sata.0";
 	};
 
 	/* this sku has both eSATA and eMMC */
@@ -55,5 +57,20 @@
 	pwm-leds {
 		compatible = "pwm-leds";
 		status = "disabled";
+	};
+
+	xusb_padctl@7009f000 {
+		status = "okay";
+		pads {
+			sata {
+				status = "okay";
+				lanes {
+					sata-0 {
+						nvidia,function = "sata";
+						status = "okay";
+					};
+				};
+			};
+		};
 	};
 };
