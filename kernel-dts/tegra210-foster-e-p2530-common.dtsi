@@ -87,9 +87,24 @@
 
 	sdhci@700b0000 {
 		default-drv-type = <1>;
+		sd-uhs-sdr104;
+		sd-uhs-sdr50;
+		sd-uhs-sdr25;
+		sd-uhs-sdr12;
+		mmc-ddr-1_8v;
+		mmc-hs200-1_8v;
+		no-sdio;
+		no-mmc;
 	};
 
 	sdhci@700b0600 {
+		mmc-ddr-1_8v;
+		mmc-hs200-1_8v;
+		mmc-hs400-1_8v;
+		no-sdio;
+		no-sd;
+		nvidia,enable-hwcq;
+		non-removable;
 		mmc-hs400-enhanced-strobe;
 	};
 
