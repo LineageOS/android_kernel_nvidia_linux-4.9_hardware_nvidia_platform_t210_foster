@@ -18,17 +18,12 @@
 		secret = <37>;
 		toffset = <0>;
 		polling_period = <1100>;
-		ndevs = <2>;
+		ndevs = <1>;
 		cdev_type = "pwm-fan";
 		tzp_governor_name = "pid_thermal_gov";
 
 		dev1 {
 			dev_data = "CPU-therm";
-			coeffs = <100 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0>;
-		};
-
-		dev2 {
-			dev_data = "GPU-therm";
 			coeffs = <100 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0>;
 		};
 	};
