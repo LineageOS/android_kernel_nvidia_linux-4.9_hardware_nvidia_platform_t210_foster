@@ -30,6 +30,11 @@
 	nvidia,dtsfilename = __FILE__;
 	nvidia,fastboot-usb-pid = <0xb421>;
 
+	chosen {
+		bootargs = "earlycon=uart8250,mmio32,0x70006000";
+		stdout-path = &uarta;
+	};
+
 	firmware {
 		android {
 			compatible = "android,firmware";
