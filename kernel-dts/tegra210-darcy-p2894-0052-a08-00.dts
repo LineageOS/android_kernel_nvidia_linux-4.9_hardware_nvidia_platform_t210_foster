@@ -24,7 +24,6 @@
 #include "foster-platforms/tegra210-darcy-pcie.dtsi"
 #include "foster-platforms/tegra210-darcy-prods.dtsi"
 #include "foster-platforms/tegra210-darcy-power-dvfs-p2894-0050-a08.dtsi"
-#include "foster-platforms/tegra210-darcy-edp-p2894-0050-a08.dtsi"
 
 / {
 	model = "darcy";

@@ -35,9 +35,7 @@
 #include <t210-common-platforms/tegra210-ers-hdmi-e2190-1100-a00.dtsi>
 #include "foster-platforms/tegra210-foster-e-thermal-fan-est.dtsi"
 #include "foster-platforms/tegra210-loki-e-keys-p2530-0032-e00.dtsi"
-#include <tegra210-soc/tegra210-edp.dtsi>
 #include <dt-bindings/iio/meter/ina3221x.h>
-#include <t210-common-platforms/tegra210-sysedp.dtsi>
 #include <tegra210-soc/tegra210-audio.dtsi>
 #include <tegra210-soc/tegra210-soc-sata.dtsi>
 #include "foster-platforms/tegra210-foster-cpufreq.dtsi"
@@ -333,42 +331,6 @@
 		throttle@oc1 {
 			status = "disabled";
 		};
-	};
-
-	cpu_edp {
-		status = "okay";
-		nvidia,edp_limit = <25000>;
-	};
-
-	gpu_edp {
-		status = "okay";
-		nvidia,edp_limit = <25000>;
-	};
-
-	sysedp_reactive_capping@3 {
-		compatible = "nvidia,tegra124-sysedp_reactive_capping";
-		nvidia,max_capping_mw = <15000>;
-		nvidia,step_alarm_mw = <1000>;
-		nvidia,step_relax_mw = <500>;
-		nvidia,relax_ms = <250>;
-		interrupt-parent = <&soctherm>;
-		interrupts = <3 0x2002>;
-		sysedpc {
-			nvidia,name = "batmon_oc3";
-		};
-	};
-
-	sysedp {
-		compatible = "nvidia,tegra124-sysedp";
-		nvidia,margin = <0>;
-		nvidia,min_budget = <0>;
-		nvidia,initial_budget = <40000>;
-	};
-
-	sysedp-dynamic-capping {
-		compatible = "nvidia,tegra124-sysedp-dynamic-capping";
-		nvidia,throttle_depth = <75>;
-		nvidia,cap_method = <1>;
 	};
 
 	bcmdhd_wlan {
