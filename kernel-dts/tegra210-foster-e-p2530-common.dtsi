@@ -369,6 +369,7 @@
 
 	chosen {
 		nvidia,tegra-shield-sku;
+		firmware-blob-partition = "RP4";
         };
 
 	tlk {
