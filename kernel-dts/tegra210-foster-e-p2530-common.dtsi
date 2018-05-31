@@ -39,6 +39,7 @@
 #include <tegra210-soc/tegra210-audio.dtsi>
 #include <tegra210-soc/tegra210-soc-sata.dtsi>
 #include "foster-platforms/tegra210-foster-cpufreq.dtsi"
+#include "foster-platforms/tegra210-foster-e-power-dvfs.dtsi"
 
 / {
 	host1x {
