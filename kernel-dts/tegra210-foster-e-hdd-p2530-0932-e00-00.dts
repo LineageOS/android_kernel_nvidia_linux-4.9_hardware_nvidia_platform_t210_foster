@@ -45,8 +45,10 @@
 
 	sata@70020000 {
 		status = "okay";
+		compatible = "nvidia,tegra210-ahci-sata-shield";
 		nvidia,sata-connector-type=<E_SATA_P>;
 		nvidia,enable-sata-port;
+		aux-device-name = "tegra-sata.0";
 	};
 
 	sdhci@700b0600 {
@@ -56,6 +58,21 @@
 	soctherm@0x700E2000 {
 		throttle@oc3 {
 			status = "disabled";
+		};
+	};
+
+	xusb_padctl@7009f000 {
+		status = "okay";
+		pads {
+			sata {
+				status = "okay";
+				lanes {
+					sata-0 {
+						nvidia,function = "sata";
+						status = "okay";
+					};
+				};
+			};
 		};
 	};
 };
