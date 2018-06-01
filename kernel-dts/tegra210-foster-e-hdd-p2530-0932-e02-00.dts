@@ -38,6 +38,12 @@
 		};
 	};
 
+	chosen {
+		fastboot-instructions = "Tap on power button to navigate menu options.\nHold down power button for 2 sec and release for selecting an option.\nOem unlock may take upto 2 hours.\n";
+		satafw-partition = "RP4";
+		bootargs = "androidboot.secureos=tlk gpt";
+	};
+
 	sata@70020000 {
 		status = "okay";
 		compatible = "nvidia,tegra210-ahci-sata-shield";
