@@ -31,11 +31,6 @@
 	nvidia,dtsfilename = __FILE__;
 	nvidia,fastboot-usb-pid = <0xb422>;
 
-	chosen {
-		bootargs = "earlycon=uart8250,mmio32,0x70006000";
-		stdout-path = &uarta;
-	};
-
 	firmware {
 		android {
 			compatible = "android,firmware";
@@ -46,7 +41,8 @@
 	chosen {
 		fastboot-instructions = "Tap on power button to navigate menu options.\nHold down power button for 2 sec and release for selecting an option.\nOem unlock may take upto 2 hours.\n";
 		satafw-partition = "RP4";
-		bootargs = "androidboot.secureos=tlk gpt";
+		bootargs = "androidboot.secureos=tlk gpt earlycon=uart8250,mmio32,0x70006000";
+		stdout-path = &uarta;
 	};
 
 	sata@70020000 {
