@@ -61,7 +61,6 @@
 	};
 
 	pmc@7000e400 {
-		/delete-property/ nvidia,secure-pmc;
 		nvidia,core-pwr-req-active-high;
 		nvidia,sys-clock-req-active-high;
 		iopad-defaults {
