@@ -61,7 +61,6 @@
 	};
 
 	pmc@7000e400 {
-		/delete-property/ nvidia,secure-pmc;
 		nvidia,restrict-voltage-switch;
 		iopad-defaults {
 			audio-hv-pads {
