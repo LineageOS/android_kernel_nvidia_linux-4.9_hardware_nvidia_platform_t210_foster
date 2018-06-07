@@ -371,6 +371,10 @@
 		nvidia,tegra-shield-sku;
         };
 
+	tlk {
+		status = "okay";
+	};
+
 	gpio-ir-receiver {
 		compatible = "gpio-ir-receiver";
 		status = "okay";
