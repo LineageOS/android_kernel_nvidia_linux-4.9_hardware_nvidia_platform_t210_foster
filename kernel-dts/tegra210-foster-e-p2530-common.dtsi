@@ -42,6 +42,13 @@
 #include "foster-platforms/tegra210-foster-e-power-dvfs.dtsi"
 
 / {
+	firmware {
+		android {
+			compatible = "android,firmware";
+			first_stage_delay = "1";
+		};
+	};
+
 	host1x {
 		/* tegradc.0 */
 		dc@54200000 {
