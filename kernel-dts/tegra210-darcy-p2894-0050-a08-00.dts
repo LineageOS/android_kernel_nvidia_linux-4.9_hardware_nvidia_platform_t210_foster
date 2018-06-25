@@ -40,7 +40,11 @@
 	firmware {
 		android {
 			compatible = "android,firmware";
+#if LINUX_VERSION >= 414
+			hardware = "darcy-k414";
+#else
 			hardware = "darcy";
+#endif
 		};
 	};
 
