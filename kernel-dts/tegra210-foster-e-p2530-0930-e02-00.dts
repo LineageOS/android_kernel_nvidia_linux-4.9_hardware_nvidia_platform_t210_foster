@@ -47,3 +47,7 @@
 		status = "disabled";
 	};
 };
+
+#if LINUX_VERSION >= 414
+#include <tegra210-linux-4.14.dtsi>
+#endif
