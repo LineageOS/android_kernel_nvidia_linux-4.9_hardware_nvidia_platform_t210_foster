@@ -35,6 +35,7 @@
 			 <&tegra_car TEGRA210_CLK_OVERRIDE_EMC>;
 		clock-names = "emc", "pll_m", "pll_c", "pll_p", "clk_m",
 			"pll_mb", "pll_mb_ud", "pll_p_ud", "emc_override";
+		#thermal-sensor-cells = <0>;
 		#address-cells = <1>;
 		#size-cells = <0>;
 		nvidia,use-ram-code;
