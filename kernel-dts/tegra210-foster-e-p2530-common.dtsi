@@ -80,6 +80,10 @@
 		};
 	};
 
+	chosen {
+		nvidia,bootloader-xusb-enable;
+	};
+
 	pwm@7000a000 {
 		nvidia,no-clk-sleeping-in-ops;
 	};
