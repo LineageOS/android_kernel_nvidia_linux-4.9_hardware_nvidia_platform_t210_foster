@@ -426,6 +426,7 @@
 	bcmdhd_wlan {
 		sdhci-host = <&sdhci1>;
 		pwr-retry-cnt = <5>;
+		builtin-roam-disabled;
 		country_code_map {
 			CC_XV {
 				iso_abbrev = "XV";
