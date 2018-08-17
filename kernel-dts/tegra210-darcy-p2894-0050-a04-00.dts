@@ -24,14 +24,6 @@
 	chosen {
 		/delete-property/ nvidia,tegra-joint_xpu_rail;
 	};
-
-#if LINUX_VERSION >= 414
-	firmware {
-		android {
-			hardware = "darcy-k414";
-		};
-	};
-#endif
 };
 
 #if LINUX_VERSION >= 414
