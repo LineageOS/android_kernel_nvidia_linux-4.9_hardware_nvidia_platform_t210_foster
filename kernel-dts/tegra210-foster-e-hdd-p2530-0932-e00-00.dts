@@ -63,8 +63,8 @@
 	};
 
 	soctherm@0x700E2000 {
-		throttle@oc3 {
-			status = "disabled";
+		throttle-cfgs {
+			/delete-node/ oc3;
 		};
 	};
 
