@@ -425,6 +425,7 @@
 	};
 
 	bcmdhd_wlan {
+		clm_blob_path = "/system/etc/wifi/bcmdhd_clm_darcy.blob";
 		sdhci-host = <&sdhci1>;
 		pwr-retry-cnt = <5>;
 		builtin-roam-disabled;
