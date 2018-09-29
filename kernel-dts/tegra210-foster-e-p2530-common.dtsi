@@ -570,6 +570,12 @@
 		dma-names = "tx";
 	};
 
+	efuse@7000f800 {
+		efuse-burn {
+			nvidia,redundant-aid-war;
+		};
+	};
+
 	nvs_dsm {
 		compatible = "nvidia,nvs_dsm";
 		status = "okay";
