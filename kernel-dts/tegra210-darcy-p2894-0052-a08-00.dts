@@ -35,7 +35,7 @@
 		nvidia,tegra-darcy-sku;
 		nvidia,tegra-flynn-sku;
 		stdout-path = "/serial@70006000";
-		bootargs = "androidboot.secureos=tlk earlycon=uart8250,mmio32,0x70006000";
+		bootargs = "androidboot.secureos=tlk earlycon=uart8250,mmio32,0x70006000 androidro.vendor.nrdp.modelgroup=SHIELDANDROIDTVBFGD";
 	};
 
 	firmware {
