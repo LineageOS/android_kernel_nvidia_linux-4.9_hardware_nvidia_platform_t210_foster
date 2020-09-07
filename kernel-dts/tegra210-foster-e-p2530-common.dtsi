@@ -470,7 +470,7 @@
 		country_code_map {
 			CC_XV {
 				iso_abbrev = "XV";
-				custom_locale = "XX";
+				custom_locale = "XV";
 				custom_locale_rev = <0>;
 			};
 			CC_US {
@@ -666,7 +666,7 @@
 			};
 			CC_AP {
 				iso_abbrev = "AP";
-				custom_locale = "XV";
+				custom_locale = "XY";
 				custom_locale_rev = <0>;
 			};
 			CC_RU {
